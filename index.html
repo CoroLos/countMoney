@@ -2,39 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>game</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="animate.css" />
+    <script type="text/javascript" src="hammer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="game.css" />
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        div{
+        .flyMoney{
             width: 100%;
-            height: 100px;
-            background-color: #f00;
+            animation: flyAway 1s linear;
+        }
+        @keyframes flyAway {
+            0%{
+                transform: translateY(0) scale(1);
+            }
+            100%{
+                transform: translateY(-500px) scale(.2);
+            }
         }
     </style>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
     <div id="box">
-        welcome!!
+        <!--第一页-->
+        <div id="part1">
+            <!--飞入字体-->
+            <div id="flyText">
+                <img src="imgs/title1.png" alt="#" class="animated bounceInLeft" />
+                <img src="imgs/title2.png" alt="#" class="animated swing" />
+            </div>
+            <!--开始按钮-->
+            <div id="startGame">
+                <img src="imgs/start_game.png" class="animated pulse infinite" />
+                <img src="imgs/shou.png" alt="#" class="animated fadeOut infinite" />
+            </div>
+            <!--底部栏-->
+            <div id="footMsg">
+                    <img src="imgs/ranking.png" alt="#" />
+                    <img src="imgs/rules.png" alt="#" />
+                    <img src="imgs/prize.png" alt="#" />
+                    <img src="imgs/shuoming.png" alt="#" />
+            </div>
+            <!--隐藏用户登录界面-->
+            <div id="userMsg" class="animated flipInX">
+                <img src="imgs/close.png" alt="#" class="closed" />
+                <form action="#">
+                    <input type="text" name="user" placeholder="姓名" />
+                    <input type="text" name="tel" placeholder="电话" />
+                    <input type="button" value="&nbsp;" />
+                </form>
+            </div>
+        </div>
+        <!--第一页结束-->
+
+        <!--游戏界面-->
+        <div id="part2">
+            <img src="imgs/kuang.png" alt="#" class="kuang"/>
+            <img src="imgs/txt1.png" alt="#" id="txtChange" class="txtChange"/>
+            <div id="countTime">
+                <span class="times">0</span>
+                <span class="times">0</span>
+                <span class="times">0</span>
+                <span class="clock">60</span>
+            </div>
+            <div id="moneyWrap">
+                <img id="money" src="imgs/money.jpg" alt="#" />
+            </div>
+            <img src="imgs/zhuan.png" alt="#" class="zhuan" />
+            <img src="imgs/shou2.png" alt="#" class="slipeShou animated fadeOutUp infinite" />
+
+            <!--游戏结束提示-->
+            <div id="gameOver" class="animated pulse infinite"></div>
+
+        </div>
+        <!--游戏界面结束-->
     </div>
-    <p id="p1"></p>
-    <p id="p2"></p>
-    <p id="p3"></p>
-    <script>
-        var i=0;
-        box.addEventListener("touchstart", function(e){
-            p1.innerHTML = e.type + " " + (i+1);
-        })
-        box.addEventListener("touchmove", function(e){
-            p2.innerHTML = e.type + " " + i++;
-        })
-        box.addEventListener("touchend", function(e){
-            p3.innerHTML = e.type + " " + i++;
-        })
-    </script>
+
+    <!--外部JS脚本-->
+    <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
